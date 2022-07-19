@@ -1,0 +1,346 @@
+{
+	"info": {
+		"_postman_id": "7423295f-c0a8-45a9-8543-71624498fbb4",
+		"name": "Jira",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11935688"
+	},
+	"item": [
+		{
+			"name": "CreateJiraTicket",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let response=pm.response.json();\r",
+							"pm.globals.set(\"Issue_ID\",response.id);\r",
+							"pm.test(\"Issue is successfully created\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"fields\": {\r\n\t\t\"project\": {\r\n\t\t\t\"key\": \"LEAF\"\r\n\t\t},\r\n\t\t\"summary\": \"create issue in RA project\",\r\n\t\t\"description\": \"Creating of an issue using project keys and issue type names using the REST API\",\r\n\t\t\"issuetype\": {\r\n\t\t\t\"name\": \"Story\"\r\n\t\t}\r\n\t}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api-training.atlassian.net/rest/api/2/issue/",
+					"protocol": "https",
+					"host": [
+						"api-training",
+						"atlassian",
+						"net"
+					],
+					"path": [
+						"rest",
+						"api",
+						"2",
+						"issue",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SearchIssue",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api-training.atlassian.net/rest/api/2/issue/{{Issue_ID}}",
+					"protocol": "https",
+					"host": [
+						"api-training",
+						"atlassian",
+						"net"
+					],
+					"path": [
+						"rest",
+						"api",
+						"2",
+						"issue",
+						"{{Issue_ID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EditIssue",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {\r",
+							"    pm.response.to.have.status(204);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"fields\": {\r\n\r\n        \"description\": \"Bug creation Using REST API for testing\"\r\n    }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api-training.atlassian.net/rest/api/2/issue/{{Issue_ID}}",
+					"protocol": "https",
+					"host": [
+						"api-training",
+						"atlassian",
+						"net"
+					],
+					"path": [
+						"rest",
+						"api",
+						"2",
+						"issue",
+						"{{Issue_ID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SearchForAllIssues",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api-training.atlassian.net/rest/api/2/search?jql=project=\"LEAF\"",
+					"protocol": "https",
+					"host": [
+						"api-training",
+						"atlassian",
+						"net"
+					],
+					"path": [
+						"rest",
+						"api",
+						"2",
+						"search"
+					],
+					"query": [
+						{
+							"key": "jql",
+							"value": "project=\"LEAF\""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ListAllIssueTypes",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let response = pm.response.json();\r",
+							"pm.collectionVariables.set(\"JIRA_ID\", response[0].id);\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api-training.atlassian.net/rest/api/2/issuetype",
+					"protocol": "https",
+					"host": [
+						"api-training",
+						"atlassian",
+						"net"
+					],
+					"path": [
+						"rest",
+						"api",
+						"2",
+						"issuetype"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ListSpecificIssues",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api-training.atlassian.net/rest/api/2/issuetype/{{JIRA_ID}}",
+					"protocol": "https",
+					"host": [
+						"api-training",
+						"atlassian",
+						"net"
+					],
+					"path": [
+						"rest",
+						"api",
+						"2",
+						"issuetype",
+						"{{JIRA_ID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {\r",
+							"    pm.response.to.have.status(204);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://api-training.atlassian.net/rest/api/2/issue/{{Issue_ID}}",
+					"protocol": "https",
+					"host": [
+						"api-training",
+						"atlassian",
+						"net"
+					],
+					"path": [
+						"rest",
+						"api",
+						"2",
+						"issue",
+						"{{Issue_ID}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "uZB7BG0ZeVDHltcPSnXIC1C1",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "hari.radhakrishnan@testleaf.com",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "JIRA_ID",
+			"value": ""
+		}
+	]
+}

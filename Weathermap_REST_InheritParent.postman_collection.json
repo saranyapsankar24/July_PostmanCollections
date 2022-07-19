@@ -1,0 +1,225 @@
+{
+	"info": {
+		"_postman_id": "e74008ac-5b38-49c3-9ca4-fabd09d6e0dc",
+		"name": "Weathermap_REST_InheritParent",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11935688"
+	},
+	"item": [
+		{
+			"name": "Get_WeatherDetails",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"weather\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{Host}}?lat={{lati}}&lon={{long}}",
+					"protocol": "https",
+					"host": [
+						"{{Host}}"
+					],
+					"query": [
+						{
+							"key": "lat",
+							"value": "{{lati}}"
+						},
+						{
+							"key": "lon",
+							"value": "{{long}}"
+						},
+						{
+							"key": "appid",
+							"value": "ce1519ae94f8c39404fad63a0ff9f7cf",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_WeatherDetailsAPIKEYAuth",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"weather\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "in",
+							"value": "query",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "appid",
+							"type": "string"
+						},
+						{
+							"key": "value",
+							"value": "ce1519ae94f8c39404fad63a0ff9f7cf",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{Host}}?lat=35&lon=139",
+					"protocol": "https",
+					"host": [
+						"{{Host}}"
+					],
+					"query": [
+						{
+							"key": "lat",
+							"value": "35"
+						},
+						{
+							"key": "lon",
+							"value": "139"
+						},
+						{
+							"key": "appid",
+							"value": "ce1519ae94f8c39404fad63a0ff9f7cf",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_WeatherDetailsUsingAuth",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"weather\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{Key}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "appid",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{Host}}?lat=35&lon=139&appid={{Key}}",
+					"protocol": "https",
+					"host": [
+						"{{Host}}"
+					],
+					"query": [
+						{
+							"key": "lat",
+							"value": "35"
+						},
+						{
+							"key": "lon",
+							"value": "139"
+						},
+						{
+							"key": "appid",
+							"value": "{{Key}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "in",
+				"value": "query",
+				"type": "string"
+			},
+			{
+				"key": "value",
+				"value": "ce1519ae94f8c39404fad63a0ff9f7cf",
+				"type": "string"
+			},
+			{
+				"key": "key",
+				"value": "appid",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "lati",
+			"value": "35",
+			"type": "string"
+		},
+		{
+			"key": "long",
+			"value": "139",
+			"type": "string"
+		}
+	]
+}

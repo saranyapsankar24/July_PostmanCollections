@@ -1,0 +1,89 @@
+{
+	"info": {
+		"_postman_id": "7ed83b07-2456-457e-b9ae-15d68f6fc6d7",
+		"name": "Chaining",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11935688"
+	},
+	"item": [
+		{
+			"name": "Get_UUID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let response=pm.response.json();\r",
+							"pm.globals.set(\"uuidnew\",response.uuid);\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http:\\\\httpbin.org\\uuid",
+					"protocol": "http",
+					"host": [
+						"httpbin",
+						"org"
+					],
+					"path": [
+						"uuid"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post_UUID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Name\":\"saranya\",\r\n    \"UUID\":{{uuidnew}}\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http:\\\\httpbin.org\\post",
+					"protocol": "http",
+					"host": [
+						"httpbin",
+						"org"
+					],
+					"path": [
+						"post"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

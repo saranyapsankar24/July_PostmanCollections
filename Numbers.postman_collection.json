@@ -1,0 +1,82 @@
+{
+	"info": {
+		"_postman_id": "e3f4fa31-863a-4dd1-97ae-6336306d6e8d",
+		"name": "Numbers",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11935688"
+	},
+	"item": [
+		{
+			"name": "NumberToWords",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml; charset=utf-8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n  <soap:Body>\r\n    <NumberToWords xmlns=\"http://www.dataaccess.com/webservicesserver/\">\r\n      <ubiNum>500</ubiNum>\r\n    </NumberToWords>\r\n  </soap:Body>\r\n</soap:Envelope>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://www.dataaccess.com/webservicesserver/NumberConversion.wso",
+					"protocol": "https",
+					"host": [
+						"www",
+						"dataaccess",
+						"com"
+					],
+					"path": [
+						"webservicesserver",
+						"NumberConversion.wso"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "NumberToDollars",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml; charset=utf-8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n  <soap:Body>\r\n    <NumberToDollars xmlns=\"http://www.dataaccess.com/webservicesserver/\">\r\n      <dNum>500</dNum>\r\n    </NumberToDollars>\r\n  </soap:Body>\r\n</soap:Envelope>"
+				},
+				"url": {
+					"raw": "https://www.dataaccess.com/webservicesserver/NumberConversion.wso",
+					"protocol": "https",
+					"host": [
+						"www",
+						"dataaccess",
+						"com"
+					],
+					"path": [
+						"webservicesserver",
+						"NumberConversion.wso"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,220 @@
+{
+	"info": {
+		"_postman_id": "9a224d9c-4084-4ff6-8bd9-ac79b18a44fd",
+		"name": "Calculator_Soap _MultipleData",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11935688"
+	},
+	"item": [
+		{
+			"name": "Addition_Calc_SOAP",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is verified as 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml; charset=utf-8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n    <soap:Body>\r\n        <Add xmlns=\"http://tempuri.org/\">\r\n            <intA>{{IntA}}</intA>\r\n            <intB>{{IntB}}</intB>\r\n        </Add>\r\n    </soap:Body>\r\n</soap:Envelope>"
+				},
+				"url": {
+					"raw": "{{Host}}/calculator.asmx?op=Add",
+					"host": [
+						"{{Host}}"
+					],
+					"path": [
+						"calculator.asmx"
+					],
+					"query": [
+						{
+							"key": "op",
+							"value": "Add"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Multiplication_Calc_SOAP",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is verified as 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml; charset=utf-8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n  <soap:Body>\r\n    <Multiply xmlns=\"http://tempuri.org/\">\r\n      <intA>{{IntA}}</intA>\r\n      <intB>{{IntB}}</intB>\r\n    </Multiply>\r\n  </soap:Body>\r\n</soap:Envelope>"
+				},
+				"url": {
+					"raw": "www.dneonline.com/calculator.asmx?op=Multiply",
+					"host": [
+						"www",
+						"dneonline",
+						"com"
+					],
+					"path": [
+						"calculator.asmx"
+					],
+					"query": [
+						{
+							"key": "op",
+							"value": "Multiply"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Division_Calc_SOAP",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is verified as 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml; charset=utf-8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n  <soap:Body>\r\n    <Divide xmlns=\"http://tempuri.org/\">\r\n      <intA>10</intA>\r\n      <intB>5</intB>\r\n    </Divide>\r\n  </soap:Body>\r\n</soap:Envelope>"
+				},
+				"url": {
+					"raw": "www.dneonline.com/calculator.asmx?op=Divide",
+					"host": [
+						"www",
+						"dneonline",
+						"com"
+					],
+					"path": [
+						"calculator.asmx"
+					],
+					"query": [
+						{
+							"key": "op",
+							"value": "Divide"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Subtract_Calc_SOAP",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is verified as 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml; charset=utf-8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n  <soap:Body>\r\n    <Subtract xmlns=\"http://tempuri.org/\">\r\n      <intA>85</intA>\r\n      <intB>20</intB>\r\n    </Subtract>\r\n  </soap:Body>\r\n</soap:Envelope>"
+				},
+				"url": {
+					"raw": "www.dneonline.com/calculator.asmx?op=Subtract",
+					"host": [
+						"www",
+						"dneonline",
+						"com"
+					],
+					"path": [
+						"calculator.asmx"
+					],
+					"query": [
+						{
+							"key": "op",
+							"value": "Subtract"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

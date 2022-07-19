@@ -1,0 +1,247 @@
+{
+	"info": {
+		"_postman_id": "093a4d05-fbf5-4ba8-8790-33f5cf84ff4f",
+		"name": "Calculator",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11935688"
+	},
+	"item": [
+		{
+			"name": "ADD",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml; charset=utf-8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n  <soap:Body>\r\n    <NumberToWords xmlns=\"http://www.dataaccess.com/webservicesserver/\">\r\n      <ubiNum>500</ubiNum>\r\n    </NumberToWords>\r\n  </soap:Body>\r\n</soap:Envelope>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://www.dataaccess.com/webservicesserver/NumberConversion.wso",
+					"protocol": "https",
+					"host": [
+						"www",
+						"dataaccess",
+						"com"
+					],
+					"path": [
+						"webservicesserver",
+						"NumberConversion.wso"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "NumberToDollars",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml; charset=utf-8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n  <soap:Body>\r\n    <NumberToDollars xmlns=\"http://www.dataaccess.com/webservicesserver/\">\r\n      <dNum>500</dNum>\r\n    </NumberToDollars>\r\n  </soap:Body>\r\n</soap:Envelope>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://www.dataaccess.com/webservicesserver/NumberConversion.wso",
+					"protocol": "https",
+					"host": [
+						"www",
+						"dataaccess",
+						"com"
+					],
+					"path": [
+						"webservicesserver",
+						"NumberConversion.wso"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DIVIDE",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml; charset=utf-8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n  <soap:Body>\r\n    <Divide xmlns=\"http://tempuri.org/\">\r\n      <intA>5</intA>\r\n      <intB>5</intB>\r\n    </Divide>\r\n  </soap:Body>\r\n</soap:Envelope>"
+				},
+				"url": {
+					"raw": "http://www.dneonline.com/calculator.asmx",
+					"protocol": "http",
+					"host": [
+						"www",
+						"dneonline",
+						"com"
+					],
+					"path": [
+						"calculator.asmx"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "MULTIPLY",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml; charset=utf-8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n  <soap:Body>\r\n    <Multiply xmlns=\"http://tempuri.org/\">\r\n      <intA>5</intA>\r\n      <intB>5</intB>\r\n    </Multiply>\r\n  </soap:Body>\r\n</soap:Envelope>"
+				},
+				"url": {
+					"raw": "http://www.dneonline.com/calculator.asmx",
+					"protocol": "http",
+					"host": [
+						"www",
+						"dneonline",
+						"com"
+					],
+					"path": [
+						"calculator.asmx"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SUBTRACT",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml; charset=utf-8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n  <soap:Body>\r\n    <Subtract xmlns=\"http://tempuri.org/\">\r\n      <intA>5</intA>\r\n      <intB>5</intB>\r\n    </Subtract>\r\n  </soap:Body>\r\n</soap:Envelope>"
+				},
+				"url": {
+					"raw": "http://www.dneonline.com/calculator.asmx",
+					"protocol": "http",
+					"host": [
+						"www",
+						"dneonline",
+						"com"
+					],
+					"path": [
+						"calculator.asmx"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

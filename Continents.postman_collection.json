@@ -1,0 +1,51 @@
+{
+	"info": {
+		"_postman_id": "31748a66-0725-4cd7-845a-b7e993b7eb9e",
+		"name": "Continents",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11935688"
+	},
+	"item": [
+		{
+			"name": "ADD",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml; charset=utf-8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<soap12:Envelope xmlns:soap12=\"http://www.w3.org/2003/05/soap-envelope\">\r\n  <soap12:Body>\r\n    <ListOfContinentsByName xmlns=\"http://www.oorsprong.org/websamples.countryinfo\">\r\n    </ListOfContinentsByName>\r\n  </soap12:Body>\r\n</soap12:Envelope>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso",
+					"protocol": "http",
+					"host": [
+						"webservices",
+						"oorsprong",
+						"org"
+					],
+					"path": [
+						"websamples.countryinfo",
+						"CountryInfoService.wso"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
